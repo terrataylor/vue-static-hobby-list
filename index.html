@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueTest</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="app">
+        <h3>My Hobby List</h3>
+        Total number of hobbies:
+        <p v-bind:style="{color: getColor()}">{{hobbies.length}}</p>
+        <ul>
+            <app-li v-for="hobby in hobbies" v-bind:hobby="hobby" v-on:hobbyremoved="removeHobby($event)"></app-li>
+            <!-- <li v-for="hobby in hobbies" v-on:click="removeHobby(hobby)">{{hobby}}</li>-->
+        </ul>
+        <p v-if="itemDeleted ==true">Hobby Deleted!</p>
+        <input type="text" v-model="newHobby">
+        <button v-on:click="addHobby()">Add Hobby</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
